@@ -1,0 +1,19 @@
+
+:root {
+    --main-green: rgb(127,212,97);
+    --main-greenHover: rgb(59, 158, 59);
+  }
+
+.bgimage{
+    background-image: url("../img/fondoHuerta.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.colorButton:hover{
+    background-color: var(--main-greenHover);
+    color: rgb(222, 222, 222);
+}
+
