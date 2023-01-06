@@ -22,6 +22,9 @@ const MapView = ({
 
   const control = geosearch();
 
+
+  
+
   useEffect(() => {
     const { current = {} } = mapRef;
     const { leafletElement: map } = current;
@@ -31,23 +34,11 @@ const MapView = ({
     control.addTo(map);
 
     control.on("results", handleOnSearchResuts);
-/* 
-    control.on("results", function (data) {
-      results.clearLayers();
-      for (let i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
-      }
-    }); */
+
 
     control.off("results", handleOnSearchResuts);
-  }, []);
+  });
 
-
-
-  /**
-   * handleOnSearchResuts
-   * @param {object} data Results object from esri-leaflet-geocoder
-   */
 
   const handleOnSearchResuts = (data) => {
     console.log("Searchlts", data);
