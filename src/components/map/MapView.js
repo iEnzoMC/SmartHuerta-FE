@@ -22,9 +22,6 @@ const MapView = ({
 
   const control = geosearch();
 
-
-  
-
   useEffect(() => {
     const { current = {} } = mapRef;
     const { leafletElement: map } = current;
@@ -35,14 +32,12 @@ const MapView = ({
 
     control.on("results", handleOnSearchResuts);
 
-
     control.off("results", handleOnSearchResuts);
-  });
-
+  }, []);
 
   const handleOnSearchResuts = (data) => {
     console.log("Searchlts", data);
-  }
+  };
 
   const getAllHomes = async (currentLocation) => {
     const { data } = await getHome();
@@ -58,6 +53,7 @@ const MapView = ({
     }
   };
 
+  //verifico si el usuario isNew lo envio a la introduccion sino traigo todas las casas
   useEffect(() => {
     if (dataOfUser?.isNew) {
       UserIntroduction(dataOfUser);
@@ -66,6 +62,7 @@ const MapView = ({
     }
   }, []);
 
+  //Cuando elimino una "casa" verifico que el usuario no quede sin ella
   useEffect(() => {
     if (deleteHome) {
       const homeOfUser = dataHome.data?.some(
