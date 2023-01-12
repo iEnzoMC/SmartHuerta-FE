@@ -4,7 +4,7 @@ import "./assets/main.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home.js";
 import UserPerfil from "./components/user/UserPerfil";
-import Loguin from "./components/Loguin/LoginUi";
+import Login from "./components/Login/LoginUi";
 import { HttpMethods } from "./components/Context/httpContext";
 import { MapPage } from "./components/map/MapPage";
 import { UserMethods } from "./components/Context/useContext";
@@ -21,8 +21,8 @@ function App() {
             <Route path="/map">
               <MapPage />
             </Route>
-            <Route path="/loguin">
-              <Loguin />
+            <Route path="/login">
+              <Login />
             </Route>
             <Route path="/perfil">
               <UserPerfil />

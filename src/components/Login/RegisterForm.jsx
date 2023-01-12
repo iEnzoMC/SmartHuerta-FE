@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { isEmptyArray, useFormik } from "formik";
 import "../../assets/tailwind.css";
-import { colorButton } from "../Loguin/Styles/LoguinStyles";
+import { colorButton } from "../Login/Styles/LoginStyles";
 import { Grid, Button, Box, TextField, Typography } from "@material-ui/core";
 import { isEmptyObject } from "jquery";
 import { useHistory } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
 const RegisterForm = (props) => {
-  const { changueToLoguin, registerUser } = props;
+  const {  changueToLogin, registerUser } = props;
   const [sucessRegister, setSucessRegister] = useState(false);
 
   const validateMessaje = (UIMessaje) => {
@@ -196,7 +196,7 @@ const RegisterForm = (props) => {
             >
               ¿Ya tienes una cuenta?{" "}
               <Button
-                onClick={() => changueToLoguin("loguin")}
+                onClick={() => changueToLogin("login")}
                 style={{ color: "green" }}
               >
                 ingresar

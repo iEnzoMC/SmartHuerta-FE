@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Login.module.css";
 import "../../assets/tailwind.css";
 import { useFormik } from "formik";
-import { colorButton } from "./Styles/LoguinStyles";
+import { colorButton } from "./Styles/LoginStyles";
 import {
   Grid,
   Button,

@@ -7,20 +7,20 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import {
   paperLogin,
-  logoHuertaLoguin,
+  logoHuertaLogin,
   bgColorLogo,
-} from "./Styles/LoguinStyles";
+} from "./Styles/LoginStyles";
 
 import { Grid, Box, Paper } from "@material-ui/core";
 import { useContext } from "react";
 import { HttpContext } from "../Context/httpContext";
 import { UserContext } from "../Context/useContext";
 const LoginUi = () => {
-  const [loginOption, setLoginOption] = useState("loguin");
+  const [loginOption, setLoginOption] = useState("login");
   const { post } = useContext(HttpContext);
   const { saveUser } = useContext(UserContext);
 
-  const changueToLoguin = (value) => {
+  const changueToLogin = (value) => {
     setLoginOption(value);
   };
   const changueToRegister = (value) => {
@@ -70,17 +70,17 @@ const LoginUi = () => {
         <Paper elevation={10} xs={12} style={paperLogin}>
           <Box style={bgColorLogo}>
             <div>
-              <img src={logo} alt="logoSamrtHuerta" style={logoHuertaLoguin} />
+              <img src={logo} alt="logoSamrtHuerta" style={logoHuertaLogin} />
             </div>
           </Box>
-          {loginOption === "loguin" ? (
+          {loginOption === "login" ? (
             <LoginForm
               changueToRegister={changueToRegister}
               loginUser={loginUser}
             />
           ) : (
             <RegisterForm
-              changueToLoguin={changueToLoguin}
+              changueToLogin={changueToLogin}
               registerUser={registerUser}
             />
           )}

@@ -10,7 +10,7 @@ const paperLogin = {
     margin: "10rem auto",
     borderRadius: "1rem"
 };
-const logoHuertaLoguin = {
+const logoHuertaLogin = {
     paddingTop: "50%",
     width: "100%"
 }
@@ -25,4 +25,4 @@ const bgColorLogo = {
     backgroundColor:`${root.mainGreen}`,
     padding: "2rem"
 }
-export {paperLogin, logoHuertaLoguin, colorButton, bgColorLogo};
+export {paperLogin, logoHuertaLogin, colorButton, bgColorLogo};
