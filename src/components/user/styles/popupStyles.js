@@ -54,6 +54,8 @@ const avatarFormStyle = {
   backgroundImage:
     "linear-gradient(225deg, #edd65d 0, #dcd657 8.33%, #cad653 16.67%, #b6d450 25%, #a0d24e 33.33%, #87d04e 41.67%, #6acc50 50%, #45c854 58.33%, #00c45a 66.67%, #00c163 75%, #00bd6d 83.33%, #00ba78 91.67%, #00b785 100%)",
   margin: "auto",
+  width: '100%',
+  height: '100vh'
 };
 const deleteIcon = {
   position: "absolute",

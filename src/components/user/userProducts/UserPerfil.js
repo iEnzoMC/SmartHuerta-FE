@@ -1,20 +1,19 @@
-import { Avatar, Grid, Paper, Typography } from "@material-ui/core";
+import { Avatar, Divider, Grid, Paper, Typography } from "@material-ui/core";
 import React, { useState } from "react";
-import "../../assets/tailwind.css";
-import "../../assets/main.css";
 import MenuIcon from "@material-ui/icons/Menu";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-import imgLogo from "../../components/img/Logotipo_smart.png";
+import imgLogo from "../../../components/img/Logotipo_smart.png";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import { avatarFormStyle, avatarStyle } from "./styles/popupStyles";
+import { avatarFormStyle, avatarStyle } from "../styles/popupStyles";
 import PersonIcon from "@material-ui/icons/Person";
+import Products from "./Products";
 
 const UserPerfil = () => {
   const [img, setImg] = useState("");
 
   return (
     <body style={avatarFormStyle}>
-      <div style={{ height: "100vh", width: "100vw" }}>
+      <div>
         <div style={{ height: "95%", width: "100%" }}>
           <div className="md:hidden responsive">
             <img src={imgLogo} className="img-responsive" alt="logosdas" />
@@ -142,45 +141,84 @@ const UserPerfil = () => {
 
           <Paper
             elevation={0}
-            style={{ height: "20%", width: "80%", margin: "auto" }}
+            style={{ height: "20%", width: "50%", margin: "auto" }}
           >
-            <div style={{display: 'flex', justifyContent: 'space-evenly', paddingBottom: '0.5rem', paddingTop: '0.5rem'}}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                paddingBottom: "0.5rem",
+                paddingTop: "1rem",
+              }}
+            >
+              {/* div del avatar */}
+              <div>
+                <Avatar
+                  src={img}
+                  /*  onClick={() => handleClickOpen()} */
+                  style={{ height: "6rem", width: "6rem" }}
+                >
+                  <PersonIcon style={{ height: 120, width: 120 }} />
+                </Avatar>
+              </div>
 
-            <div>
-              <Avatar
-                src={img}
-                /*  onClick={() => handleClickOpen()} */
-                style={{ height: "6rem", width: "6rem" }}
-              >
-                <PersonIcon style={{ height: 120, width: 120 }} />
-              </Avatar>
-            </div>
+              <div style={{ width: "50%" }}>
+                <Typography
+                  variant="h5"
+                  style={{
+                    fontWeight: "800",
+                    fontSize: "15px",
+                    marginBottom: "10px",
+                  }}
+                >
+                  Pedro Pablo
+                </Typography>
+                <Typography
+                  variant="span"
+                  style={{
+                    fontWeight: "600",
+                    fontSize: "13px",
+                    marginBottom: "3px",
+                  }}
+                >
+                  Profesor de Programacion y apasionado por Smart Huerta
+                </Typography>
 
-            <div style={{width: '26%'}}>
-              <Typography variant="h5" style={{fontWeight: '800', fontSize: '15px', marginBottom: '10px'}}>
-                Pedro Pablo
-              </Typography>
-              <Typography variant="span" style={{fontWeight: '600', fontSize: '13px', marginBottom: '3px'}}>
-                Profesor de Programacion y apasionado por Smart Huerta
-              </Typography>
-
-              <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '15px', paddingBottom: '5px'}}>
-              <Typography variant="span" style={{fontWeight: '800',  fontSize: '12px'}}>
-                productos: 30
-              </Typography>
-              <Typography variant="span" style={{fontWeight: '800',  fontSize: '12px'}}>
-                SmartPoint: 200
-              </Typography>
-              <Typography variant="span" style={{fontWeight: '800', fontSize: '12px'}}>
-                Trueques Realizados: 25
-              </Typography>
-
+                {/* div datos de usuario */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "15px",
+                    paddingBottom: "5px",
+                  }}
+                >
+                  <Typography
+                    variant="span"
+                    style={{ fontWeight: "800", fontSize: "12px" }}
+                  >
+                    productos: 30
+                  </Typography>
+                  <Typography
+                    variant="span"
+                    style={{ fontWeight: "800", fontSize: "12px" }}
+                  >
+                    SmartPoint: 200
+                  </Typography>
+                  <Typography
+                    variant="span"
+                    style={{ fontWeight: "800", fontSize: "12px" }}
+                  >
+                    Trueques Realizados: 25
+                  </Typography>
+                </div>
               </div>
             </div>
-
-            </div>
-            
           </Paper>
+
+          <div style={{ paddingTop: "2rem" }}>
+            <Products></Products>
+          </div>
         </div>
       </div>
     </body>
