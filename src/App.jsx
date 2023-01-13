@@ -8,12 +8,14 @@ import Login from "./components/Login/LoginUi";
 import { HttpMethods } from "./components/Context/httpContext";
 import { MapPage } from "./components/map/MapPage";
 import { UserMethods } from "./components/Context/useContext";
+import Navbar from "./components/Navigation/Navbar";
 
 function App() {
   return (
     <HttpMethods>
       <UserMethods>
         <Router>
+          <Navbar />
           <Switch>
             <Route exact path="/">
               <Home />

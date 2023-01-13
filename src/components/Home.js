@@ -29,6 +29,8 @@ const Home = () => {
     );
   }
 
+  console.log(state);
+
   /*  const registerLocation = () => {
      await axios.post('http://localhost:4000/api/auth/new', {name, password})
      .then(result =>{
