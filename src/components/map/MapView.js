@@ -29,9 +29,7 @@ const MapView = ({
     if (!map) return;
 
     control.addTo(map);
-
     control.on("results", handleOnSearchResuts);
-
     control.off("results", handleOnSearchResuts);
   }, []);
 

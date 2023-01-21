@@ -25,7 +25,6 @@ const LoguinForm = (props) => {
 
   const handleLogin = async (values) => {
     const respLogin = await loginUser(values);
-
     if (respLogin.ok) {
       toast.success("Usuario Logeado con exito ");
       setTimeout(() => {

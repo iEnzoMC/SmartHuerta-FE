@@ -29,17 +29,13 @@ const LoguinUi = () => {
 
   const registerUser = async (body) => {
     try {
-      await post("/api/auth/new", body);
-      const data = await post("/api/auth/", body);
-
+      const data = await post("/api/auth/new", body);
       const userRegister = {
-        name: body.name,
-        email: body.email,
+        ...data,
         isNew: true,
       };
-
       saveUser(userRegister)
-      return data;
+      return userRegister;
     } catch (error) {
       console.log(error, "eerrror");
       window.alert("Usuario no registrado Error en el sistema");
@@ -48,16 +44,10 @@ const LoguinUi = () => {
 
   const loginUser = async (body) => {
     try {
-      const data = await post("/api/auth/", body);
-
-      const userData = {
-        name: body.name,
-        email: body.email,
-        isNew: false,
-      };
-
+      const userData = await post("/api/auth/", body);
+      
       saveUser(userData)
-      return data;
+      return userData;
     } catch (error) {
       console.log(error, "rror");
       window.alert("Error en el sistema");

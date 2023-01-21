@@ -53,7 +53,6 @@ const RegisterForm = (props) => {
 
   const handleRegister = async (values) => {
     const respRegister = await registerUser(values);
-
     if (respRegister.ok) {
       toast.success("Usuario Registrado con exito ");
       setTimeout(() => {
