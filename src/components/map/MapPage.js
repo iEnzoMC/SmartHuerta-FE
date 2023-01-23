@@ -31,6 +31,22 @@ export const MapPage = () => {
     }
   };
 
+  const goToMyGome = async () => {
+    try {
+      const { data } = await get(`/api/homes/${dataOfUser.uId}`);
+      const allDataHomes = await getHome();
+      const geometry = data.geometry;
+
+      setDataHome({
+        currentLocation: { lat: geometry[0], lng: geometry[1] },
+        zoom: 16,
+        data: allDataHomes.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const registerHome = async (dataHome) => {
     try {
       const registerData = await post("/api/homes/new/home", dataHome);
@@ -48,6 +64,7 @@ export const MapPage = () => {
       setDataHome={setDataHome}
       getHome={getHome}
       changeUserNew={changeUserNew}
+      goToMyGome={goToMyGome}
     />
   );
 };

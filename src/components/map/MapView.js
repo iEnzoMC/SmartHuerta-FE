@@ -7,6 +7,9 @@ import { UserIntroduction } from "../user/UserIntroduction";
 import { validationHomesByUser } from "./validation/validationHome";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import { geosearch } from "esri-leaflet-geocoder";
+import { Button } from "@material-ui/core";
+import HouseIcon from "@material-ui/icons/House";
+import { buttonMyHome } from "./mapStyles/MapStyles";
 
 const MapView = ({
   registerHome,
@@ -15,6 +18,7 @@ const MapView = ({
   dataHome,
   getHome,
   changeUserNew,
+  goToMyGome
 }) => {
   const [deleteHome, setDeleteHome] = useState(false);
 
@@ -75,14 +79,16 @@ const MapView = ({
     }
   }, [deleteHome]);
 
+  
+
   const registerNewHome = async (e) => {
     const { lat, lng } = e.latlng;
-
     const newVenue = {
       name: dataOfUser.name,
       latitude: lat,
       longitude: lng,
       isSpecial: false,
+      userId: dataOfUser.id,
     };
 
     const validationHome = validationHomesByUser(dataHome, newVenue);
@@ -108,10 +114,10 @@ const MapView = ({
     <>
       <Toaster position="top-center" />
 
-      <Map
-        center={dataHome?.currentLocation}
+     {dataHome && <Map
+        center={dataHome.currentLocation}
         style={{ width: "100%" }}
-        zoom={dataHome?.zoom}
+        zoom={dataHome.zoom}
         ondblclick={registerNewHome}
         ref={mapRef}
       >
@@ -136,7 +142,12 @@ const MapView = ({
             />
           </BaseLayer>
         </LayersControl>
+        <div onClick={goToMyGome}>
+          <HouseIcon style={buttonMyHome}></HouseIcon>
+        </div>
       </Map>
+     }
+      
     </>
   );
 };
