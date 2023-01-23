@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 .leaflet-container {
   width: 100vw;
@@ -41,9 +41,9 @@ a {
   color: unset;
 }
 
-a:hover {
+/* a:hover {
   color: white;
-}
+} */
 img {
   height: 1rem;
   width: 2rem;

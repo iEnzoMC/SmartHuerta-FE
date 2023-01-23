@@ -13,8 +13,8 @@ import { useContext } from "react";
 import { UserContext } from "../Context/useContext";
 import SettingsIcon from '@material-ui/icons/Settings';
 import { colorButton } from "../Login/Styles/LoginStyles";
-import CartProduct from "./components/cardProduct/CartProduct";
 import { Pagination } from "@material-ui/lab";
+import CardProduct from "./components/cardProduct/CardProduct";
 
 const UserPerfil = () => {
   const { dataUser } = useContext(UserContext);
@@ -100,14 +100,14 @@ const UserPerfil = () => {
         >
           {[0, 1, 2, 3, 4, 5, 6, 7].map((value) => (
             <Grid item>
-              <CartProduct key={value} />
+              <CardProduct />
             </Grid>
           ))}
 
-          <div>
-            {/* <Pagination count={3} variant="outlined" shape="rounded" /> */}
+          {/* <div>
+            <Pagination count={3} variant="outlined" shape="rounded" />
             <Button variant="contained">Cargar Mas Productos</Button>
-          </div>
+          </div> */}
         </Grid>
       </Paper>
     </Container>

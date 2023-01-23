@@ -18,12 +18,10 @@ import AvatarOptions from "./AvatarOptions";
 import { useContext } from "react";
 import { UserContext } from "../Context/useContext";
 
-
-const ListItemsNavbar = ({ pages, settings }) => {
-  const { dataUser } = useContext(UserContext);
-  const userData = dataUser();
+const ListItemsNavbar = ({ pages, userData }) => {
+  // const { dataUser } = useContext(UserContext);
+  // const userData = dataUser();
   const classes = listItemsStyles();
-
 
   return (
     <>
@@ -57,10 +55,9 @@ const ListItemsNavbar = ({ pages, settings }) => {
 
       <div style={{ display: "flex", alignItems: "center" }}>
         <Box style={{ display: "flex" }}>
-          {pages.map((page) => (
-            <Link to={`/${page}`.trim()}>
+          {pages.map((page, index) => (
+            <Link to={`/${page}`.trim()} key={index}>
               <Button
-                key={page}
                 value={page}
                 // onClick={handleclickNavButton}
                 sx={buttonNavStyles}
@@ -89,7 +86,7 @@ const ListItemsNavbar = ({ pages, settings }) => {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <AvatarOptions userData={userData}/>
+            <AvatarOptions userData={userData} />
           </div>
         ) : null}
       </div>

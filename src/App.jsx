@@ -16,7 +16,7 @@ function App() {
         <Router>
           <Navbar />
           <Switch>
-            <Route path="/Home">
+            <Route path="/Mapa">
               <MapPage />
             </Route>
             <Route path="/login">

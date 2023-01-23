@@ -8,7 +8,7 @@ import {
   MenuItem,
   Typography,
 } from "@material-ui/core";
-import PersonAdd from "@material-ui/icons/PersonAdd";
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 import Settings from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
@@ -50,9 +50,9 @@ const AvatarOptions = ({ userData }) => {
       >
         <Link to={"/Perfil".trim()}>
           <MenuItem
-            onClick={() => {
-              console.log("abrir perfil");
-            }}
+            // onClick={() => {
+            //   console.log("abrir perfil");
+            // }}
           >
             <ListItemIcon>
               <PersonIcon />
@@ -66,7 +66,7 @@ const AvatarOptions = ({ userData }) => {
         <Divider />
         <MenuItem>
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <AutorenewIcon fontSize="small" />
           </ListItemIcon>
           Trueques
         </MenuItem>
