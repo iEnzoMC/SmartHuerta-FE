@@ -110,6 +110,8 @@ const MapView = ({
 
   const { BaseLayer } = LayersControl;
 
+  console.log('hola develop')
+ 
   return (
     <>
       <Toaster position="top-center" />
