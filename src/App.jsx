@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import "./assets/main.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./components/Home.js";
 import UserPerfil from "./components/user/UserPerfil";
 import Login from "./components/Login/LoginUi";
 import { HttpMethods } from "./components/Context/httpContext";
@@ -17,16 +16,13 @@ function App() {
         <Router>
           <Navbar />
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/map">
+            <Route path="/Home">
               <MapPage />
             </Route>
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/perfil">
+            <Route path="/Perfil">
               <UserPerfil />
             </Route>
           </Switch>

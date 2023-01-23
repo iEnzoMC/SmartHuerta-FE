@@ -9,35 +9,31 @@ import {
 import { Link } from "react-router-dom";
 import DrawerNavbar from "./DrawerNavbar";
 import ListItemsNavbar from "./ListItemsNavbar";
+import { toolbarXl } from "./styles/NavbarStyles";
 
-const pages = ["Home", "Perfil", "Usiarios", "Trueques","Nosotros"];
+
+const pages = ["Home", "Usuarios", "Trueques", "Nosotros","Contacto"];
 
 const Navbar = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleclickNavButton = (event) => {
-    console.log(event.currentTarget.value);
-    // <Link to={`/${event.currentTarget.value}`} />;
-  };
+
+
+  // const userLog = localStorage.getItem("user");
+  // const userLoger = parseInt(localStorage.getItem("user"));
+
+  // console.log(getUserData());
 
   return (
-    <AppBar /* color="transparent" */ color="white">
+    <AppBar color="white">
       <Container maxWidth="xl">
-        <Toolbar
-          disableGutters
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            paddingLeft: "2rem",
-          }}
-        >
+        <Toolbar disableGutters style={toolbarXl}>
           {isMatch ? (
             <DrawerNavbar pages={pages} />
           ) : (
             <ListItemsNavbar
               pages={pages}
-              handleclickNavButton={handleclickNavButton}
             />
           )}
         </Toolbar>
