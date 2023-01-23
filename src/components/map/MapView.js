@@ -116,7 +116,7 @@ const MapView = ({
 
      {dataHome && <Map
         center={dataHome.currentLocation}
-        style={{ width: "100%" }}
+        style={{ width: "100%", marginTop: 65, height: 'calc(100vh - 65px)' }}
         zoom={dataHome.zoom}
         ondblclick={registerNewHome}
         ref={mapRef}
