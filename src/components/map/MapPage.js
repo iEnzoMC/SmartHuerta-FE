@@ -5,6 +5,7 @@ import { HttpContext } from "../Context/httpContext";
 import MapView from "./MapView";
 import { UserContext } from "../Context/useContext";
 import { getLocationByUser } from "../../utils/getLocationByUser";
+
 export const MapPage = () => {
   const { post, get } = useContext(HttpContext);
   const { dataUser, changeUserNew } = useContext(UserContext);

@@ -20,6 +20,10 @@ width: 20rem;
   position: absolute;
   left: 7px;
 }
+body{
+  margin-top: 4rem;
+  height: calc(100vh - 65px);
+}
 
 * {
   margin: 0;

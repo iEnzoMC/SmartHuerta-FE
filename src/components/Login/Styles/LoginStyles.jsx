@@ -1,3 +1,4 @@
+
 const root = {
     botonGreen: "#63FF80",
     mainGreen: "rgb(127,212,97)"
@@ -17,7 +18,7 @@ const logoHuertaLogin = {
 const colorButton = {
     backgroundColor:`${root.botonGreen}`,
     color: "black",
-    marginBottom: '10%'
+    marginBottom: '10%',
 }
 
 const bgColorLogo = {
