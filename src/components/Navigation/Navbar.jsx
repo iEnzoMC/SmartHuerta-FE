@@ -6,13 +6,12 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import DrawerNavbar from "./DrawerNavbar";
 import ListItemsNavbar from "./ListItemsNavbar";
 import { toolbarXl } from "./styles/NavbarStyles";
 
 
-const pages = ["Home", "Usuarios", "Trueques", "Nosotros","Contacto"];
+const pages = ["Mapa", "Usuarios", "Trueques", "Nosotros","Contacto"];
 
 const Navbar = () => {
   const theme = useTheme();

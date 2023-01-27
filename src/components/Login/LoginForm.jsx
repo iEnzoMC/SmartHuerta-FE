@@ -12,8 +12,8 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
   const { changueToRegister, loginUser } = props;
@@ -21,14 +21,15 @@ const LoginForm = (props) => {
     return <p style={{ color: "red" }}>{UIMessaje}</p>;
   };
 
-  const history = useHistory();
+
+  let navigate = useNavigate();
 
   const handleLogin = async (values) => {
     const respLogin = await loginUser(values);
     if (respLogin.ok) {
       toast.success("Usuario Logeado con exito ");
       setTimeout(() => {
-        history.push("/map");
+        navigate('/map')
       }, 1000);
     } else {
       console.log(respLogin);

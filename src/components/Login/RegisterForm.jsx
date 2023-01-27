@@ -4,12 +4,15 @@ import "../../assets/tailwind.css";
 import { colorButton } from "../Login/Styles/LoginStyles";
 import { Grid, Button, Box, TextField, Typography } from "@material-ui/core";
 import { isEmptyObject } from "jquery";
-import { useHistory } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
+
 
 const RegisterForm = (props) => {
   const {  changueToLogin, registerUser } = props;
   const [sucessRegister, setSucessRegister] = useState(false);
+  const navigate = useNavigate()
 
   const validateMessaje = (UIMessaje) => {
     return <p style={{ color: "red" }}>{UIMessaje}</p>;
@@ -49,14 +52,13 @@ const RegisterForm = (props) => {
     return errors;
   };
 
-  const history = useHistory();
 
   const handleRegister = async (values) => {
     const respRegister = await registerUser(values);
     if (respRegister.ok) {
       toast.success("Usuario Registrado con exito ");
       setTimeout(() => {
-        history.push("/map");
+        navigate('/map')
       }, 1000);
     } else {
       console.log(respRegister)

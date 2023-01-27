@@ -11,33 +11,25 @@ import {
   deleteIcon,
   iconStyle,
 } from "./styles/popupStyles";
-import {
-  Avatar,
-  Button,
-  Grid,
-  makeStyles,
-  TextField,
-} from "@material-ui/core";
+import { Avatar, Button, Grid, makeStyles, TextField } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import PhoneAndroidOutlinedIcon from "@material-ui/icons/PhoneAndroidOutlined";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import ModalAvatarUI from "./avatar/ModalAvatarUI";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import { UserContext } from "../Context/useContext";
+import { useNavigate } from "react-router-dom";
 
 const MarkerPopup = ({ venue, deleteHome }) => {
   const [img, setImg] = useState("");
   const [value, setValue] = useState(2);
   const { dataUser } = useContext(UserContext);
 
-  
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  
-const dataOfUser = dataUser()
-  
+  const dataOfUser = dataUser();
 
   const [open, setOpen] = useState(false);
 
@@ -50,17 +42,17 @@ const dataOfUser = dataUser()
 
   const [avatar, setAvatar] = useState("");
 
-  const useStyles = makeStyles((theme) => ({
+/*   const useStyles = makeStyles((theme) => ({
     margin: {
       margin: theme.spacing(1),
     },
   }));
-
+ */
   const changeRoutePerfil = () => {
-    history.push("/perfil");
+    navigate("/perfil");
   };
 
-  const classes = useStyles();
+/*   const 'hola'tyles(); */
 
   return (
     <Popup className="leaflet-popup">
@@ -107,17 +99,21 @@ const dataOfUser = dataUser()
             left: "11%",
           }}
         >
-          <div className={classes.margin}>
+          <div className={'hola'}>
             <Grid container spacing={1} alignItems="flex-end">
               <Grid item>
                 <MailOutlineIcon />
               </Grid>
               <Grid item>
-                <TextField id="input-with-icon-grid" label="Email" value={dataOfUser.email} />
+                <TextField
+                  id="input-with-icon-grid"
+                  label="Email"
+                  value={dataOfUser.email}
+                />
               </Grid>
             </Grid>
           </div>
-          <div className={classes.margin}>
+          <div className={'hola'}>
             <Grid container spacing={1} alignItems="flex-end">
               <Grid item>
                 <HomeOutlinedIcon />
@@ -127,7 +123,7 @@ const dataOfUser = dataUser()
               </Grid>
             </Grid>
           </div>
-          <div className={classes.margin}>
+          <div className={'hola'}>
             <Grid container spacing={1} alignItems="flex-end">
               <Grid item>
                 <PhoneAndroidOutlinedIcon />

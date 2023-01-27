@@ -23,49 +23,42 @@ export const MapPage = () => {
     }
   });
 
-  const getHome = async () => {
-    try {
-      const data = await get("/api/homes/");
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
-  const goToMyGome = async () => {
+  const goToMyHome = async () => {
     try {
-      const { data } = await get(`/api/homes/${dataOfUser.uId}`);
-      const allDataHomes = await getHome();
+  
+      const { data } = await get(`/api/homes/${dataOfUser.id}`);
       const geometry = data.geometry;
 
       setDataHome({
-        currentLocation: { lat: geometry[0], lng: geometry[1] },
+        ...dataHome,
+        currentLocation: { lat: 0, lng: 0 },
         zoom: 16,
-        data: allDataHomes.data,
       });
+
+
+      setTimeout(() => {
+        setDataHome({
+          ...dataHome,
+          currentLocation: { lat: geometry[0], lng: geometry[1] },
+          zoom: 16,
+        });
+      }, 3000);
+      
     } catch (error) {
       console.log(error);
     }
   };
 
-  const registerHome = async (dataHome) => {
-    try {
-      const registerData = await post("/api/homes/new/home", dataHome);
-      return registerData;
-    } catch (error) {
-      return error;
-    }
-  };
+  
 
   return (
     <MapView
-      registerHome={registerHome}
       dataHome={dataHome}
-      dataOfUser={dataOfUser}
       setDataHome={setDataHome}
-      getHome={getHome}
       changeUserNew={changeUserNew}
-      goToMyGome={goToMyGome}
+      goToMyHome={goToMyHome}
     />
   );
 };

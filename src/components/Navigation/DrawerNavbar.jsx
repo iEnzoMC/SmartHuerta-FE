@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import { buttonNavStyles } from "../Navigation/styles/NavbarStyles";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
 import {
   Button,
   Divider,
@@ -15,6 +14,7 @@ import {
   ListItemText,
   Typography,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 // import AvatarUser from "../user/avatar/AvatarUser";
 
 // const actions = ["Loguin", "Logout"];

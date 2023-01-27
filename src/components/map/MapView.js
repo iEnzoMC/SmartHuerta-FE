@@ -7,20 +7,22 @@ import { UserIntroduction } from "../user/UserIntroduction";
 import { validationHomesByUser } from "./validation/validationHome";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import { geosearch } from "esri-leaflet-geocoder";
-import { Button } from "@material-ui/core";
 import HouseIcon from "@material-ui/icons/House";
-import { buttonMyHome } from "./mapStyles/MapStyles";
+import { buttonMyHome, mapContainer } from "./mapStyles/MapStyles";
+import { UserContext } from "../Context/useContext";
+import { useContext } from "react";
+import { HouseContext } from "../Context/houseContext";
 
 const MapView = ({
-  registerHome,
   setDataHome,
-  dataOfUser,
   dataHome,
-  getHome,
   changeUserNew,
-  goToMyGome
+  goToMyHome
 }) => {
+  const { registerHome, getHome } = useContext(HouseContext)
+  const { dataUser } = useContext(UserContext);
   const [deleteHome, setDeleteHome] = useState(false);
+  const dataOfUser = dataUser();
 
   const mapRef = useRef();
 
@@ -110,15 +112,13 @@ const MapView = ({
 
   const { BaseLayer } = LayersControl;
 
-  console.log('hola develop')
- 
   return (
     <>
       <Toaster position="top-center" />
 
      {dataHome && <Map
         center={dataHome.currentLocation}
-        style={{ width: "100%", marginTop: 65, height: 'calc(100vh - 65px)' }}
+        style={mapContainer}
         zoom={dataHome.zoom}
         ondblclick={registerNewHome}
         ref={mapRef}
@@ -144,7 +144,7 @@ const MapView = ({
             />
           </BaseLayer>
         </LayersControl>
-        <div onClick={goToMyGome}>
+        <div onClick={goToMyHome}>
           <HouseIcon style={buttonMyHome}></HouseIcon>
         </div>
       </Map>
