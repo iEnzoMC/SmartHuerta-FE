@@ -2,19 +2,24 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Login.module.css";
 import "../../assets/tailwind.css";
-import logo from "../img/Logotipo_smart.png";
+
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import {
   paperLogin,
-  logoHuertaLogin,
-  bgColorLogo,
+ 
+  bgColorLogo, 
+ 
 } from "./Styles/LoginStyles";
 
 import { Grid, Box, Paper } from "@material-ui/core";
 import { useContext } from "react";
 import { HttpContext } from "../Context/httpContext";
 import { UserContext } from "../Context/useContext";
+import LoginLogoicon from "./Images/LoginLogo.icon";
+
+
+
 const LoginUi = () => {
   const [loginOption, setLoginOption] = useState("login");
   const { post } = useContext(HttpContext);
@@ -60,7 +65,7 @@ const LoginUi = () => {
         <Paper elevation={10} xs={12} style={paperLogin}>
           <Box style={bgColorLogo}>
             <div>
-              <img src={logo} alt="logoSamrtHuerta" style={logoHuertaLogin} />
+         <LoginLogoicon/>
             </div>
           </Box>
           {loginOption === "login" ? (

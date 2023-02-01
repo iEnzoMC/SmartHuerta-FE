@@ -26,4 +26,8 @@ const bgColorLogo = {
     backgroundColor:`${root.mainGreen}`,
     padding: "2rem"
 }
+
+
+
+
 export {paperLogin, logoHuertaLogin, colorButton, bgColorLogo};
