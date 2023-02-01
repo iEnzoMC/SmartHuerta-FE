@@ -55,8 +55,7 @@ const LoginForm = (props) => {
   const logInFormik = useFormik({
     initialValues: {
       name: "",
-      password: "",
-      email: "",
+      password: ""
     },
     validate,
     onSubmit: (values) => {
@@ -103,23 +102,6 @@ const LoginForm = (props) => {
             autoComplete="current-password"
             variant="standard"
             value={logInFormik.values.password}
-            onChange={logInFormik.handleChange}
-            onBlur={logInFormik.handleBlur}
-          />
-        </Grid>
-
-        <Grid item align="center">
-          <TextField
-            style={{ marginTop: "0.5rem" }}
-            className={`${styles.inputItems}`}
-            fullWidth
-            name="email"
-            required
-            id="email"
-            label="Email"
-            type="email"
-            variant="standard"
-            value={logInFormik.values.email}
             onChange={logInFormik.handleChange}
             onBlur={logInFormik.handleBlur}
           />
